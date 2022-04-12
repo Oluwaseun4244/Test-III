@@ -90,7 +90,7 @@ function Dashboard() {
             w="100px"
             border="1px solid #393B68"
           >
-            <Select w="100%" placeholder="Today">
+            <Select border="none" w="100%" placeholder="Today">
               <option>Custom</option>
               <option>Yesterday</option>
               <option>This Week</option>
