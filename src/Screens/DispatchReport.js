@@ -9,10 +9,11 @@ import {
   Button,
   Center,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { Navigate, useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
+import DetailRow from "../Components/DetailRow";
 
 function DispatchReport() {
   const navigate = useNavigate();
@@ -72,14 +73,6 @@ function DispatchReport() {
           </InputLeftElement>
           <Input bg="#F2F2F2" placeholder="Search Report" />
         </InputGroup>
-        {/* <Spacer />
-          <Select
-            rounded="8px"
-            border="1px solid #393B68"
-            w="100px"
-            color="#363865"
-            placeholder="Today"
-          /> */}
       </Stack>
 
       <Box
@@ -93,45 +86,7 @@ function DispatchReport() {
       >
         <Box rounded="5px" bg="white">
           {data.map((item, i) => (
-            <Stack
-              key={i}
-              alignItems="center"
-              pt="16px"
-              w="100%"
-              direction={["row"]}
-            >
-              <Box>
-                <Text
-                  fontFamily="Roboto"
-                  fontSize="14px"
-                  fontWeight="500"
-                  color="#363865"
-                  fontStyle="normal"
-                >
-                  {item.property}
-                </Text>
-              </Box>
-              <Spacer />
-              <Box
-                w="126px"
-                px={2}
-                py={{ base: "15px", md: "15px" }}
-                bg="#F4F6F6"
-                rounded="6px"
-                h="60px"
-              >
-                <Text
-                  fontFamily="Roboto"
-                  fontSize="14px"
-                  textAlign="center"
-                  color="#363865"
-                  fontWeight="600"
-                >
-                  {" "}
-                  {item.value}
-                </Text>
-              </Box>
-            </Stack>
+            <DetailRow key={i} property={item.property} value={item.value} />
           ))}
 
           <Center my="20px">
